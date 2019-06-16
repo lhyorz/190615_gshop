@@ -19,13 +19,10 @@ export const reqFoodCategorys = () => ajax(BASE_URL + '/index_category')
 export const reqShops = (longitude, latitude) => ajax(BASE_URL + '/shops', {longitude, latitude})
 
 // [4、根据经纬度和关键字搜索商铺列表]
-export const reqSearchShop = (keyword, geohash) => ajax(BASE_URL + '/search_shops', {keyword, geohash})
-
-// [5、获取一次性验证码]
-export const reqCaptcha = () => ajax(BASE_URL + '/captcha')
+export const reqSearchShop = (geohash, keyword ) => ajax(BASE_URL + '/search_shops', {geohash, keyword})
 
 // [6、用户名密码登陆]
-export const reqPwdLogin = (name, pwd, captcha) => ajax(BASE_URL + '/login_pwd', {name, pwd, captcha}, 'POST')
+export const reqPwdLogin = ({name, pwd, captcha}) => ajax(BASE_URL + '/login_pwd', {name, pwd, captcha}, 'POST')
 
 // [7、发送短信验证码]
 export const reqSendCode = (phone) => ajax(BASE_URL + '/sendcode', {phone})
@@ -38,3 +35,22 @@ export const reqUserInfo = () => ajax(BASE_URL + '/userinfo')
 
 // [10、用户登出]
 export const reqLogout = () => ajax(BASE_URL + '/logout')
+
+
+
+//  下面三个不需要前台代理，所有不需要要加 './api'
+/**
+ * 获取商家信息
+ */
+export const reqShopInfo = () => ajax('/info')
+
+/**
+ * 获取商家评价数组
+ */
+export const reqShopRatings = () => ajax('/ratings')
+
+/**
+ * 获取商家商品数组
+ */
+export const reqShopGoods = () => ajax('/goods')
+
