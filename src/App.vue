@@ -6,8 +6,29 @@
 </template>
 
 <script>
-    import FooterGuide from './components/FooterGuide/FooterGuide.vue';
+    import {mapActions} from 'vuex'
+    import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+    // import {reqFoodTypes} from './api'
+
     export default {
+
+        // async mounted(){
+        //     // reqFoodTypes().then(response => {
+        //     //     console.log(response.data)
+        //     // })
+        //     const result = await reqFoodTypes()
+        //     console.log(result)
+        // },
+
+        mounted (){
+            // this.$store.dispatch('getAddress')
+            this.getAddress()
+        },
+
+        methods: {
+            ...mapActions(['getAddress'])
+        },
+
         components: {
             FooterGuide
         }
